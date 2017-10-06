@@ -29,4 +29,20 @@ public class Employee {
     public void ShowData(){
         System.out.printf("%s %s; Yearly Salary: %.2f%n", this.firstname, this.sencondname, this.monthlysalary);
     }
+    
+    public void SetFirstName(String _name){
+        this.firstname = _name;
+    }
+    
+    public void SetSecondName(String _name){
+        this.sencondname = _name;
+    }
+    
+    public String GetFirstName(){
+        return this.firstname;
+    }
+    
+    public String GetSencondName(){
+        return this.sencondname;
+    }
 }
