@@ -10,5 +10,12 @@ package ntou.cs.java2017.chenlien;
  * @author Li-En
  */
 public class TwelveTest {
-    
+    public static void main(String[] args){
+        Twelve twelve = new Twelve();
+        for(;twelve.GetSequence1();){
+            for(;twelve.GetSequence2();){
+                
+            }
+        }
+    }
 }
