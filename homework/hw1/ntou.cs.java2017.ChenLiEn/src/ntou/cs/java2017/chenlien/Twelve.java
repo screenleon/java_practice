@@ -10,17 +10,23 @@ package ntou.cs.java2017.chenlien;
  * @author Li-En
  */
 public class Twelve {
+    //set 2 sequence variables
     private int sequence1;
     private int sequence2;
     
     public Twelve(){
+         //initialization sequence variables
         this.sequence1 = 0;
         this.sequence2 = 0;
     }
     
+    //print the case of sequence1 and check it will run or not
     public boolean GetSequence1(){
+        //when call this function add 1 to sequence1
         this.sequence1 += 1;
+        //set the sequence2 same to sequence1
         this.UpdateSequence2();
+        //print the case of sequence1
         switch(this.sequence1){
             case 1:
                 System.out.println("On the first day of Christmas\n" +
@@ -73,16 +79,22 @@ public class Twelve {
             default:
                 break;
         }
+        //know the function need to call again or not
         if(this.sequence1 > 12)
             return false;
         else return true;
     }
     
+    //set the sequence2 same to sequence1
     public void UpdateSequence2(){
+        
+        //set the sequence2 same to sequence1
         this.sequence2 = this.sequence1;
     }
     
+    //print the case of sequence2 and check it will run or not
     public boolean GetSequence2(){
+        //print the case of sequence2
         switch(this.sequence2){
             case 1:
                 if(this.sequence1 != 1){
@@ -126,7 +138,9 @@ public class Twelve {
             default:
                 break;
         }
+        //when print the case of sequence2, count down the sequence2
         this.sequence2 -= 1;
+        //if sequenec2 > 0 then run else stop
         if(this.sequence2 > 0){
             return true;
         }else return false;

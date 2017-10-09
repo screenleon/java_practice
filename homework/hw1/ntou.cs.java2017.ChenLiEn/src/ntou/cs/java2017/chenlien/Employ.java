@@ -10,39 +10,48 @@ package ntou.cs.java2017.chenlien;
  * @author Li-En
  */
 public class Employ {
-    private String firstname;
-    private String sencondname;
-    private double monthlysalary;
+    //set person's firstname, secondname, and its salary
+    private String firstName;
+    private String sencondName;
+    private double monthlySalary;
     
+    //set person name and salary
     public Employ(String _fname, String _sname, double _salary){
-        this.firstname = _fname;
-        this.sencondname = _sname;
-        if(_salary > 0)this.monthlysalary = _salary;
-        else this.monthlysalary = 0.0;
+        this.firstName = _fname;
+        this.sencondName = _sname;
+        // salary can't be < 0
+        if(_salary < 0)this.monthlySalary = 0.0;
+        else this.monthlySalary = _salary;
     }
     
-    public void Salary_Increase(double _rate){
-        this.monthlysalary *= (1 + _rate);
+    //raise salary
+    public void SalaryIncrease(double _rate){
+        this.monthlySalary *= (1 + _rate);
         return;
     }
     
+    //print person's information
     public void ShowData(){
-        System.out.printf("%s %s; Yearly Salary: %.2f%n", this.firstname, this.sencondname, this.monthlysalary);
+        System.out.printf("%s %s; Yearly Salary: %.2f%n", this.firstName, this.sencondName, this.monthlySalary);
     }
     
+    //set the first name
     public void SetFirstName(String _name){
-        this.firstname = _name;
+        this.firstName = _name;
     }
     
+    //set the second name
     public void SetSecondName(String _name){
-        this.sencondname = _name;
+        this.sencondName = _name;
     }
     
+    //get private firstname 
     public String GetFirstName(){
-        return this.firstname;
+        return this.firstName;
     }
     
+    //get private secondname
     public String GetSencondName(){
-        return this.sencondname;
+        return this.sencondName;
     }
 }

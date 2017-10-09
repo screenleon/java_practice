@@ -13,8 +13,9 @@ public class TwelveTest {
     public static void main(String[] args){
         Twelve twelve = new Twelve();
         for(;twelve.GetSequence1();){
+            //if GetSequence return true then run return false then stop
             for(;twelve.GetSequence2();){
-                
+                //if GetSequence return true then run return false then stop
             }
         }
     }
