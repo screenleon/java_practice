@@ -19,6 +19,7 @@ public class DeckOfUNOCards {
     private static final int NUMBER_OF_CARD = 48;
     private static final SecureRandom randomNumbers = new SecureRandom();
     
+    //initial card deck
     public DeckOfUNOCards(){
         ColorType colorType = null;
         deck = new UNOCard[NUMBER_OF_CARD];
@@ -50,6 +51,7 @@ public class DeckOfUNOCards {
         }
     }
     
+    //shuffle the cards in deck
     public void shuffle(){
         this.currentCard = 0;
         for(int first = 0; first < NUMBER_OF_CARD; first++){
@@ -61,6 +63,7 @@ public class DeckOfUNOCards {
         }
     }
     
+    //send the card
     public UNOCard dealCard(){
         if(this.currentCard < this.deck.length){
             return deck[this.currentCard++];

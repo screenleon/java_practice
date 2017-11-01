@@ -18,6 +18,7 @@ public class UNOCard {
     private UNOType unoType;
     private ColorType colorType;
     
+    //initial the Card to set the type
     public UNOCard(UNOType _unoType, ColorType _colorType, int _number){
         if(_number <= 9 && _number >= -1){
             this.number = _number;
@@ -26,6 +27,7 @@ public class UNOCard {
         this.colorType = _colorType;
     }
     
+    //get the card type and transfer to string
     public String toString(){
         String output="";
         output += String.format("%s", colorType) + "  ";

@@ -23,6 +23,7 @@ public class SpriralMatrix {
     private Direction direction;
     private int value = 1;
     
+    // initial the matrix and set information to class
     public SpriralMatrix(int _rotation, int _roundabout, int _length){
         switch(_rotation){
             case 1:
@@ -47,6 +48,7 @@ public class SpriralMatrix {
         this.initialArray();
     }
     
+    //know the next step's direction
     public Direction getDirection(int row, int col){
         Direction nextDirection = this.direction;
         if(this.roundabout == Roundabout.INNER){
@@ -113,6 +115,7 @@ public class SpriralMatrix {
         return nextDirection;
     }
     
+    //initial the matrix and put value in it
     public void initialArray(){
         int row = 0;
         int col = 0;
@@ -157,6 +160,7 @@ public class SpriralMatrix {
         }  
     }
     
+    // print the array's value
     public void showArray(){
         for (int _i = 0; _i < this.matrixLength; _i++){
             for (int _j = 0; _j < this.matrixLength; _j++){

@@ -23,6 +23,7 @@ public class CrapsSimulation {
     private int die1, die2, firstDieSum, sum, rollTime;
     private Status gameStatus;
     
+    //initial CrapsSimulation
     public CrapsSimulation(){
         this.gameStatus = Status.UNSTART;
         this.die1 = 0;
@@ -32,10 +33,12 @@ public class CrapsSimulation {
         this.firstDieSum = 0;
     }
     
+    //start to roll dice
     public void startRoll(){
         this.rollDice();
     }
     
+    //roll the dice
     public void rollDice(){
         this.rollTime++;
         this.die1 = 1 + randomNumbers.nextInt(6);
@@ -44,6 +47,7 @@ public class CrapsSimulation {
         this.judgeCard();
     }
     
+    //distinguish the card win or loseor continue
     public void judgeCard(){
         if(this.firstDieSum != 0){
             if(this.sum == this.firstDieSum)
@@ -73,6 +77,7 @@ public class CrapsSimulation {
         else return;
     }
     
+    //restart the crap
     public void initialCrap(){
         this.gameStatus = Status.UNSTART;
         this.die1 = 0;
@@ -82,12 +87,14 @@ public class CrapsSimulation {
         this.firstDieSum = 0;
     }
     
+    //get the dice status
     public boolean getWinLost(){
         if(this.gameStatus == Status.WON)
             return true;
         else return false;
     }
     
+    //get the roll time in class
     public int getRollTime(){
         return this.rollTime;
     }
