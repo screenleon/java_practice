@@ -30,7 +30,7 @@ public class UNOCard {
         String output="";
         output += String.format("%s", colorType) + "  ";
         if(unoType == UNOType.NUMBER)
-            output += String.format("%d", number) + "\n";
+            output += String.format("%d", number) + " ";
         else output += String.format("%s", unoType) + "  ";
         return output;
     }

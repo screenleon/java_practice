@@ -25,7 +25,7 @@ public class DeckOfUNOCards {
         this.currentCard = 0;
         for(int _i = 0; _i < deck.length; _i++){
             int _j = 0;
-            _j = _i % COLOR_NUMBER_OF_CARD;
+            _j = _i / COLOR_NUMBER_OF_CARD;
             switch(_j){
                 case 0:
                     colorType = ColorType.BLUE;
@@ -46,6 +46,26 @@ public class DeckOfUNOCards {
                 deck[_i] = new UNOCard(UNOType.DRAW2, colorType, -1);
             }else
                 deck[_i] = new UNOCard(UNOType.NUMBER, colorType, _i % COLOR_NUMBER_OF_CARD);
+            System.out.printf("%-10s\n", deck[_i].toString());
         }
     }
+    
+    public void shuffle(){
+        this.currentCard = 0;
+        for(int first = 0; first < NUMBER_OF_CARD; first++){
+            int second = randomNumbers.nextInt(NUMBER_OF_CARD);
+            
+            UNOCard temp = deck[first];
+            deck[first] = deck[second];
+            deck[second] = temp;
+        }
+    }
+    
+    public UNOCard dealCard(){
+        if(this.currentCard < this.deck.length){
+            return deck[this.currentCard++];
+        }else 
+            return null;
+    }
+    
 }
