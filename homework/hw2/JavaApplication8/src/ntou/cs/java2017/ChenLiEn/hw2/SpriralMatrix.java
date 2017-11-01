@@ -21,6 +21,7 @@ public class SpriralMatrix {
     private Rotation rotation;
     private Roundabout roundabout;
     private Direction direction;
+    private int value = 1;
     
     public SpriralMatrix(int _rotation, int _roundabout, int _length){
         switch(_rotation){
@@ -43,15 +44,40 @@ public class SpriralMatrix {
         
         this.matrixLength = _length;
         this.matrix = new int[_length][_length];
+        this.initialArray();
     }
     
     public Direction getDirection(int row, int col){
         Direction nextDirection = this.direction;
         if(this.roundabout == Roundabout.INNER){
             if(this.rotation == Rotation.CLOCKWISE){
-                
+                if(this.direction == Direction.LEFT){
+                    if(col == 0 || this.matrix[row - 1][col] == 0)
+                        nextDirection = Direction.UP;
+                }else if(this.direction == Direction.UP){
+                    if(row == 0 || this.matrix[row][col + 1] == 0)
+                        nextDirection = Direction.RIGHT;
+                }else if(this.direction == Direction.RIGHT){
+                    if(col == this.matrixLength - 1 || this.matrix[row + 1][col] == 0)
+                        nextDirection = Direction.DOWN;
+                }else if(this.direction == Direction.DOWN){
+                    if(row == this.matrixLength - 1 || this.matrix[row][col - 1] == 0)
+                        nextDirection = Direction.LEFT;
+                }
             }else{
-                
+                if(this.direction == Direction.RIGHT){
+                    if(col == this.matrixLength - 1 || this.matrix[row - 1][col] == 0)
+                        nextDirection = Direction.UP;
+                }else if(this.direction == Direction.UP){
+                    if(row == 0 || this.matrix[row][col - 1] == 0)
+                        nextDirection = Direction.LEFT;
+                }else if(this.direction == Direction.LEFT){
+                    if(col == 0 || this.matrix[row + 1][col] == 0)
+                        nextDirection = Direction.DOWN;
+                }else if(this.direction == Direction.DOWN){
+                    if(row == this.matrixLength - 1 || this.matrix[row][col + 1] == 0)
+                        nextDirection = Direction.RIGHT;
+                }
             }
         }else{
             if(this.rotation == Rotation.CLOCKWISE){
@@ -81,6 +107,7 @@ public class SpriralMatrix {
                 }else if(this.direction == Direction.LEFT){
                     if(col == 0 || this.matrix[row][col - 1] != 0)
                         nextDirection = Direction.DOWN;
+                }
             }
         }
         return nextDirection;
@@ -89,11 +116,10 @@ public class SpriralMatrix {
     public void initialArray(){
         int row = 0;
         int col = 0;
-        int value = 1;
         switch(this.roundabout){
             case INNER:
-                row = this.matrixLength / 2;
-                col = this.matrixLength / 2;
+                row = (this.matrixLength - 1) / 2;
+                col = (this.matrixLength - 1) / 2;
                 break;
             case OUTER:
                 row = 0;
@@ -105,10 +131,38 @@ public class SpriralMatrix {
                 this.direction = Direction.RIGHT;
                 break;
             case COUNTERCLOCKWISE:
-                if(this.roundabout == Roundabout.INNER)
-                    this.direction = Direction.LEFT;
-                else this.direction = Direction.DOWN;
-                
+                this.direction = Direction.DOWN;
+                break;
+        }
+        
+        for (int _i = 0; _i < this.matrixLength * this.matrixLength; _i++) {  
+            this.matrix[row][col] = value;
+            this.direction = this.getDirection(row, col);
+            value++;
+            switch (direction) {  
+            case RIGHT:  
+                col++;  
+                break;  
+            case DOWN:  
+                row++;  
+                break;  
+            case LEFT:  
+                col--;  
+                break;  
+            case UP:  
+                row--;  
+                break;  
+            }  
+              
+        }  
+    }
+    
+    public void showArray(){
+        for (int _i = 0; _i < this.matrixLength; _i++){
+            for (int _j = 0; _j < this.matrixLength; _j++){
+                System.out.printf("%2d   ", this.matrix[_i][_j]);
+            }
+            System.out.println();
         }
     }
 }
