@@ -63,7 +63,6 @@ public class DeckOfUNOCards {
         }
     }
     
-    //send the card
     public UNOCard dealCard(){
         if(this.currentCard < this.deck.length){
             return deck[this.currentCard++];
