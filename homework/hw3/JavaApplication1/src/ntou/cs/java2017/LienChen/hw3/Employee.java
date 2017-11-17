@@ -9,7 +9,9 @@ package ntou.cs.java2017.LienChen.hw3;
  *
  * @author user
  */
+
 public abstract class Employee {
-    
+    protected Bonus bonus;
     public abstract int getEarnings();
+    public abstract String toString();
 }
