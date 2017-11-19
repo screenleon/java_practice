@@ -39,6 +39,6 @@ public class SalariedEmployee extends Employee{
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.US);
         return String.format("weekly salary: %s, working weeks: %s, calculated earnings: %s, bonus: %s",
                             numberFormat.format(this.weeklySalary), numberFormat.format(this.weeks),
-                            numberFormat.format(this.getEarnings()), this.bonus.getBonus(this.getEarnings()));
+                            numberFormat.format(this.getEarnings()), numberFormat.format(this.bonus.getBonus(this.getEarnings())));
     }
 }

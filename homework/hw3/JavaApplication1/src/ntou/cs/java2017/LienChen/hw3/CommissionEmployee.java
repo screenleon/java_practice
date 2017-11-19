@@ -31,7 +31,7 @@ public class CommissionEmployee extends Employee{
     
     @Override
     public int getEarnings(){
-        return (int)commissionRate * grossSales;
+        return (int)(commissionRate * grossSales);
     }
     
     @Override
@@ -39,6 +39,6 @@ public class CommissionEmployee extends Employee{
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.US);
         return String.format("commission rate: %s, gross sales: %s, calculated earnings: %s, bonus: %s",
                             numberFormat.format(this.commissionRate), numberFormat.format(this.grossSales),
-                            numberFormat.format(this.getEarnings()), this.bonus.getBonus(this.getEarnings()));
+                            numberFormat.format(this.getEarnings()), numberFormat.format(this.bonus.getBonus(this.getEarnings())));
     }
 }

@@ -39,7 +39,7 @@ public class PieceWorker extends Employee{
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.US);
         return String.format("wage: %s, piece: %s, calculated earnings: %s, bonus: %s",
                             numberFormat.format(this.wage), numberFormat.format(this.pieces),
-                            numberFormat.format(this.getEarnings()), this.bonus.getBonus(this.getEarnings()));
+                            numberFormat.format(this.getEarnings()), numberFormat.format(this.bonus.getBonus(this.getEarnings())));
     }
     
 }

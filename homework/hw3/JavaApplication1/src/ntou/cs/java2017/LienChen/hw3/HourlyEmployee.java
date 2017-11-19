@@ -41,6 +41,6 @@ public class HourlyEmployee extends Employee{
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.US);
         return String.format("hourly salary: %s, hours: %s, calculated earnings: %s, bonus: %s",
                             numberFormat.format(this.hourlySalary), numberFormat.format(this.hours),
-                            numberFormat.format(this.getEarnings()), this.bonus.getBonus(this.getEarnings()));
+                            numberFormat.format(this.getEarnings()), numberFormat.format(this.bonus.getBonus(this.getEarnings())));
     }
 }
