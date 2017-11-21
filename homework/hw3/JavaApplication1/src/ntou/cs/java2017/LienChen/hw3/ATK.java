@@ -11,4 +11,5 @@ package ntou.cs.java2017.LienChen.hw3;
  */
 public interface ATK {
     public double attack();
+    public String initString();
 }

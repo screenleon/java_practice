@@ -39,7 +39,7 @@ public class Character {
     }
     
     public void setHp(double _hp){
-        if((_hp > 0) && (_hp < DEFAULT_HP)){
+        if((_hp > 0) && (_hp < MAX_HP)){
             this.hp = _hp;
         }
         else this.hp = 0;
@@ -75,12 +75,31 @@ public class Character {
         return this.characterStatus;
     }
     
-    public String toString(){
+    public double attack(){
+        double damage = 0.0;
+        for(int i = 0;i < this.equipment.size(); i++){
+            damage += this.equipment.get(i).attack();
+        }
+        return damage;
+    }
+    
+    public String initString(){
         String tempString = "玩家HP：" + (int)this.getHp() + "，配戴";
         for(int i = 0; i < this.equipment.size(); i++){
-            tempString += this.equipment.get(i);
+            tempString += this.equipment.get(i).initString();
             if(i < this.equipment.size() - 1)
                 tempString += "、";
+        }
+        return tempString;
+    }
+    
+    public String toString(){
+        String tempString = null;
+        if(!this.equipment.isEmpty()){
+            tempString = this.equipment.get(0).toString();
+            for(int i = 1; i < this.equipment.size(); i++){
+                tempString += this.equipment.get(i);
+            }
         }
         return tempString;
     }

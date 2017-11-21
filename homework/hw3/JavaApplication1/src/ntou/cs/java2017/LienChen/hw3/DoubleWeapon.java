@@ -37,6 +37,7 @@ public class DoubleWeapon extends Weapon{
     
     @Override
     public double attack(){
+        double oldOffense = this.nowOffense;
         SecureRandom random = new SecureRandom();
         switch(random.nextInt(doubleRate) + 1){
             case 5:
@@ -46,11 +47,16 @@ public class DoubleWeapon extends Weapon{
                 this.setNowOffense(super.getOffense());
                 break;
         }
-        return this.getNowOffense();
+        return oldOffense;
+    }
+    
+    @Override
+    public String initString(){
+        return "加倍武器攻擊力：" + (int)this.getNowOffense();
     }
     
     @Override
     public String toString(){
-        return "加倍武器攻擊力：" + (int)this.getNowOffense();
+        return "[DoubleWeapon造成 " + (int)this.getNowOffense() + " 點的傷害]";
     }
 }

@@ -47,7 +47,12 @@ public class Pet implements ATK{
     }
     
     @Override
+    public String initString(){
+        return "Pet攻擊力：" + (int)this.getNowOffense();
+    }
+    
+    @Override
     public String toString(){
-        return "Pet攻擊力： " + (int)this.getNowOffense();
+        return "[Pet造成 " + (int)this.getNowOffense() + " 點的傷害]";
     }
 }

@@ -36,14 +36,100 @@ public class War {
         this.player = new Character(playerHp, playerEquipment);
         this.npc = new Character(1000 - playerHp);
         System.out.println("您的初始設定：");
-        System.out.println(this.player);
+        System.out.println(this.player.initString());
+        System.out.println(this.npc.initString());
     }
     
     public void battle(){
         Scanner scanner = new Scanner(System.in);
         while((player.getHp() > 0) && (npc.getHp() > 0)){
+            int status = 0;
             System.out.print("請選擇: 1.攻擊 2.防禦 3.結束: ");
-            scanner.nextInt();
+            status = scanner.nextInt();
+            switch(status){
+                case 1:
+                    this.Attack();
+                    break;
+                case 2:
+                    this.Defend();
+                    break;
+                case 3:
+                    this.player.setHp(0);
+                    this.npc.setHp(0);
+                    break;
+                    
+            }
+            
         }
+        if(this.player.getHp() == 0 && this.npc.getHp() == 0){
+            System.out.println("End the game");
+        }else if(this.player.getHp() == 0){
+            System.out.println("玩家被擊倒了！");
+        }else {
+            System.out.println("NPC被擊倒了！");
+        }
+    }
+    
+    public void Attack(){
+        double playerDamage = 0;
+        double npcDamage = 0;
+        double playerLeftHp = this.player.getHp();
+        double npcLeftHp = this.npc.getHp();
+        playerDamage = this.player.attack();
+        System.out.println("玩家攻擊對手 " + playerDamage + " 點!");
+        System.out.println(this.player);
+            
+        npcLeftHp -= playerDamage;
+        if(npcLeftHp <= 0){
+            this.npc.setHp(npcLeftHp);
+            return;
+        }
+        System.out.println("對手的血從 " + (int)this.npc.getHp() + "變成" + (int)npcLeftHp);
+        this.npc.setHp(npcLeftHp);
+        
+        npcDamage = this.npc.attack();
+        System.out.println("對手攻擊玩家 " + npcDamage + " 點!");
+        System.out.println(this.npc);
+        
+        playerLeftHp -= npcDamage;
+        if(playerLeftHp <= 0){
+            this.player.setHp(playerLeftHp);
+            return;
+        }
+        System.out.println("玩家的血從 " + (int)this.player.getHp() + "變成" + (int)playerLeftHp);
+        this.player.setHp(playerLeftHp);
+    }
+    
+    public void Defend(){
+        Boolean recover = this.random.nextBoolean();
+        Boolean lossDamage = this.random.nextBoolean();
+        double playerDamage = 0;
+        double npcDamage = 0;
+        double playerLeftHp = this.player.getHp();
+        double npcLeftHp = this.npc.getHp();
+        
+        if(recover){
+            npcDamage -= this.npc.attack();
+            System.out.println("自我療癒了!");
+            System.out.println("玩家攻擊對手 0 點!");
+            System.out.println("對手的血從 " + (int)this.npc.getHp() + "變成" + (int)this.npc.getHp());
+        }else{
+            npcDamage += this.npc.attack();
+            System.out.println("玩家攻擊對手 0 點!");
+            System.out.println("對手的血從 " + (int)this.npc.getHp() + "變成" + (int)this.npc.getHp());
+        }
+        if(lossDamage)
+            npcDamage /= 2;
+        
+        System.out.println("對手攻擊玩家 " + npcDamage + " 點!");
+        System.out.println(this.npc);
+        
+        playerLeftHp -= npcDamage;
+        if(playerLeftHp <= 0){
+            this.player.setHp(playerLeftHp);
+            return;
+        }
+        System.out.println("玩家的血從 " + (int)this.player.getHp() + "變成" + (int)playerLeftHp);
+        this.player.setHp(playerLeftHp);
     }
 }

@@ -33,12 +33,18 @@ public class PowerWeapon extends Weapon{
     
     @Override
     public double attack(){
-        this.setNowOffense(super.getOffense() * 2);
-        return this.getNowOffense();
+        double oldOffense = this.nowOffense;
+        this.setNowOffense(super.getOffense() * 1.2);
+        return oldOffense;
+    }
+    
+    @Override
+    public String initString(){
+        return "強力武器攻擊力：" + (int)this.getNowOffense();
     }
     
     @Override
     public String toString(){
-        return "強力武器攻擊力：" + (int)this.getNowOffense();
+        return "[PowerWeapon造成 " + (int)this.getNowOffense() + " 點的傷害]";
     }
 }

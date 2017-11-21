@@ -32,12 +32,18 @@ public class NormalWeapon extends Weapon{
     
     @Override
     public double attack(){
+        double oldOffense = this.nowOffense;
         this.nowOffense = super.getOffense();
-        return this.getNowOffense();
+        return oldOffense;
+    }
+    
+    @Override
+    public String initString(){
+        return "一般武器攻擊力：" + (int)this.getNowOffense();
     }
     
     @Override
     public String toString(){
-        return "一般武器攻擊力：" + (int)this.getNowOffense();
+        return "[NormalWeapon造成 " + (int)this.getNowOffense() + " 點的傷害]";
     }
 }

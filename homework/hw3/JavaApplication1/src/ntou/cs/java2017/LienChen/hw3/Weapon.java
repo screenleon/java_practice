@@ -30,8 +30,9 @@ public abstract class Weapon implements ATK{
     }
     
     public void setOffense(double _offense){
-        if((0 < _offense) && (_offense < MAX_VALUE))
+        if((0 < _offense) && (_offense < MAX_VALUE)){
             this.offense = _offense;
+        }
         else
             this.offense = 0;
     }
@@ -50,7 +51,7 @@ public abstract class Weapon implements ATK{
     }
     
     public double getOffense(){
-        if(this.offense  == MAX_VALUE)
+        if(this.offense  > 0)
             return this.offense;
         else{
             int dOffense = (int)this.maxOffense - (int)this.minOffense + 1;
@@ -68,6 +69,11 @@ public abstract class Weapon implements ATK{
     
     public double getDefense(){
         return this.defense;
+    }
+    
+    @Override
+    public String initString(){
+        return "配戴武器攻擊力：" + this.offense;
     }
     
     @Override
