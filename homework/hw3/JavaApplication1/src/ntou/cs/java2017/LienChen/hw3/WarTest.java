@@ -10,5 +10,8 @@ package ntou.cs.java2017.LienChen.hw3;
  * @author user
  */
 public class WarTest {
-    
+    public static void main (String args[])
+	{
+		War war = new War();
+	}
 }

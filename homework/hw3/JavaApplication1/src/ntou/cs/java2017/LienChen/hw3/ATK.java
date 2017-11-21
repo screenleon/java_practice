@@ -9,6 +9,6 @@ package ntou.cs.java2017.LienChen.hw3;
  *
  * @author user
  */
-public class ATK {
-    
+public interface ATK {
+    public double attack();
 }
