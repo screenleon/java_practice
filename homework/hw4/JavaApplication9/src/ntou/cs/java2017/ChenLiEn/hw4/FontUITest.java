@@ -5,10 +5,17 @@
  */
 package ntou.cs.java2017.ChenLiEn.hw4;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author user
  */
 public class FontUITest {
-    
+    public static void main(String[] args){
+        FontUI fontUI = new FontUI();
+        fontUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fontUI.setSize(700, 200);
+        fontUI.setVisible(true);
+    }
 }
