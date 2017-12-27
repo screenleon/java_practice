@@ -11,6 +11,8 @@ import javax.swing.JFrame;
  *
  * @author user
  */
+ 
+//test the weatherViewer class in UI
 public class WeatherViewerTest {
     public static void main(String[] args){
         WeatherViewer weatherViewer = new WeatherViewer();

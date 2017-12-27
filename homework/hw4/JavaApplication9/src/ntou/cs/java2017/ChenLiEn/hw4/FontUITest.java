@@ -11,6 +11,7 @@ import javax.swing.JFrame;
  *
  * @author user
  */
+//test the FontUI class in UI 
 public class FontUITest {
     public static void main(String[] args){
         FontUI fontUI = new FontUI();

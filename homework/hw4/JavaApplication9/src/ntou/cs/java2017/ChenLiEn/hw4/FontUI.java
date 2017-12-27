@@ -30,13 +30,13 @@ public class FontUI extends JFrame{
         this.buttonPanel.setLayout(new GridLayout(1, 2));
         container = getContentPane();
         //this.setLayout(layout1);
-        
+        //a field that can input text and provide scrollbar
         this.textField = new JTextField();
         textField.setFont(new Font("Courier", Font.BOLD,fontSize));
         this.textScrollPane = new JScrollPane(this.textField, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, 
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.add(this.textScrollPane);
-        
+        //add button that can smaller text
         this.fontDecreaseButton = new JButton("Decrease font size");
         this.buttonPanel.add(this.fontDecreaseButton);
         this.fontDecreaseButton.addActionListener(
@@ -54,7 +54,7 @@ public class FontUI extends JFrame{
                 }
             }
         );
-        
+        //add button that can bigger text
         this.fontIncreaseButton = new JButton("Increase font size");
         this.buttonPanel.add(this.fontIncreaseButton);
         this.fontIncreaseButton.addActionListener(
@@ -72,7 +72,7 @@ public class FontUI extends JFrame{
                 }
             }
         );
-        
+        //add button panel into layout
         this.add(this.buttonPanel, BorderLayout.NORTH);
         
     }
