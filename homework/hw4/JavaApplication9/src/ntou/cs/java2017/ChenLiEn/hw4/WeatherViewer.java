@@ -35,7 +35,7 @@ public class WeatherViewer extends JFrame{
 	//run crowder and set the info which get from it
     private TemperatureBundle temperatureBundle;
 	//four city name which want to get the temperature
-    private String[] cityString = {"基隆市", "臺北市", "新北市", "桃園市"};
+    private String[] cityString = {"基隆市", "臺北市", "新北市", "桃園市", "臺南市", "高雄市"};
     private String[] dateString;
     private JLabel dayTemp;
     private JLabel nightTemp;
