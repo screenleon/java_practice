@@ -13,5 +13,8 @@ public class ShowColors2 {
     public static void main(String[] args){
         ShowColors2JFrame application = new ShowColors2JFrame();
         application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        application.setSize(600, 600);
+        application.setVisible(true);
     }
 }
