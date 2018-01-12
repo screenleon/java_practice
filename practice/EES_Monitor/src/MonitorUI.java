@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.sql.SQLException;
+import java.util.*;
 
 /**
  *
@@ -29,5 +30,7 @@ public class MonitorUI extends JFrame{
         
          textField3 = new JTextField(mysqlConnect.getBooth().toString());
         this.add(this.textField3, BorderLayout.SOUTH);
+        
+        Scanner scanner = new Scanner(System.in,"utf8");
     }
 }
