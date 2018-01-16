@@ -10,7 +10,7 @@
  */
 public class InitArray {
     public static void main(String[] args){
-        int[] array = new int[10];
+        int[] array = { 32, 27, 64, 18, 95, 14, 90, 70, 60, 37 };
         //%n will auto change to nextline in window will be \r\n 
         //in linux will be \n
         System.out.printf("%s%8s%n", "Index", "Value");
