@@ -9,21 +9,28 @@
  * @author user
  */
 public class Employee {
+    private static int count = 0;  //number of employees created
     private String firstName;
     private String lastName;
-    private Date birthDate;
-    private Date hireDate;
     
-    public Employee(String _firstName, String _lastName, Date _birthDate, Date _hireDate){
+    public Employee(String _firstName, String _lastName){
         this.firstName = _firstName;
         this.lastName = _lastName;
-        this.birthDate = _birthDate;
-        this.hireDate = _hireDate;
+        
+        ++count;
+        System.out.printf("Employee constructor: %s %s; count = %d%n", this.firstName,
+                this.lastName, count);
     }
     
-    @Override
-    public String toString(){
-        return String.format("%s, %s Hired: %s  BirthDay: %s", this.lastName,
-                this.firstName, this.hireDate, this.birthDate);
+    public String getFirstName(){
+        return this.firstName;
+    }
+    
+    public String getLastName(){
+        return this.lastName;
+    }
+    
+    public static int getCount(){
+        return count;
     }
 }
