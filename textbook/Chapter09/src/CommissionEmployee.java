@@ -9,11 +9,11 @@
  * @author user
  */
 public class CommissionEmployee extends Object{
-    private final String firstName;
-    private final String lastName;
-    private final String socialSecurityNumber;
-    private double grossSales;
-    private double commissionRate;
+    protected final String firstName;
+    protected final String lastName;
+    protected final String socialSecurityNumber;
+    protected double grossSales;
+    protected double commissionRate;
     
     public CommissionEmployee(String _firstName, String _lastName, String _socialSecurityNumber,
             double _grossSales, double _commissionRate){
