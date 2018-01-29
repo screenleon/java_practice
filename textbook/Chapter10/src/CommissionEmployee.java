@@ -8,38 +8,22 @@
  *
  * @author user
  */
-public class CommissionEmployee extends Object{
-    private final String firstName;
-    private final String lastName;
-    private final String socialSecurityNumber;
+public class CommissionEmployee extends Employee{
     private double grossSales;
     private double commissionRate;
     
     public CommissionEmployee(String _firstName, String _lastName, String _socialSecurityNumber,
             double _grossSales, double _commissionRate){
+        super(_firstName, _lastName, _socialSecurityNumber);
+        
         if(_grossSales < 0.0)
             throw new IllegalArgumentException("Gross sales must be >= 0.0");
         
         if(_commissionRate <= 0.0 || _commissionRate >= 1.0)
             throw new IllegalArgumentException("Commission rate must be > 0.0 and < 1.0");
         
-        this.firstName = _firstName;
-        this.lastName = _lastName;
-        this.socialSecurityNumber = _socialSecurityNumber;
         this.grossSales = _grossSales;
         this.commissionRate = _commissionRate;
-    }
-    
-    public String getFirstName(){
-        return this.firstName;
-    }
-    
-    public String getLastName(){
-        return this.lastName;
-    }
-    
-    public String getSocialSecurityNumber(){
-        return this.socialSecurityNumber;
     }
     
     public void setGrossSales(double _grossSales){
@@ -64,14 +48,15 @@ public class CommissionEmployee extends Object{
         return this.commissionRate;
     }
     
+    @Override
     public double earnings(){
         return this.commissionRate * this.grossSales;
     }
     
     @Override
     public String toString(){
-        return String.format("%s: %s %s%n%s: %s%n%s: %.2f%n%s: %,2f", "commission employee",
-                this.firstName, this.lastName, "social security number", this.socialSecurityNumber,
-                "gross sales", this.grossSales, "commission rate", commissionRate);
+        return String.format("%s: %s%n%s: $%,.2f; %s: %.2f", "commission employee",
+                super.toString(), "gross sales", this.grossSales, "commission rate",
+                commissionRate);
     }
 }
