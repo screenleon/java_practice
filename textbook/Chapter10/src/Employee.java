@@ -8,7 +8,7 @@
  *
  * @author user
  */
-public abstract class Employee {
+public abstract class Employee implements Payable{
     private final String firstName;
     private final String lastNAme;
     private String socialSecurityNumber;
@@ -42,6 +42,4 @@ public abstract class Employee {
                 this.getLastName(), this.getSocialSecurityNumber());
     }
     
-    //abstract method must be overridden by concrete subclasses
-    public abstract double earnings(); //no implementation here
 }

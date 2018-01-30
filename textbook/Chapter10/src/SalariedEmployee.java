@@ -37,7 +37,7 @@ public class SalariedEmployee extends Employee{
     
     //calculate earnings; override abstract method earnings in employee
     @Override
-    public double earnings(){
+    public double getPaymentAmount(){
         return this.getWeeklySalary();
     }
     
